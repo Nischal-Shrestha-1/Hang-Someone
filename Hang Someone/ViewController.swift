@@ -15,7 +15,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var lossesLabel: UILabel!
     @IBOutlet var keypadButtons: [UIButton]!
     
-    let guessWord = "HANGMAN"
+    let wordsArr: [String] = ["HANGMAN", "DRIZZLY", "SQUEEZY", "ZIPLOCK", "JUJITSU", "QUICKLY", "JAMMING", "PICKAXE", "CHECKUP", "SUBJECT", "ZIPCODE", "CUPCAKE", "FOXHUNT", "GAZABOS", "JIGSAWS", "MOCKUPS"]
+    
+    var guessWord: String = ""
     var incorrectGuesses = 0
     var wins = 0
     var losses = 0
@@ -23,7 +25,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        guessWord = wordsArr.randomElement() ?? "HANGMAN"
         displayWord()
+    }
+    
+    func getRandomWord(array: [String]) -> String? {
+        return array.randomElement()
     }
 
     func displayWord() {
@@ -80,7 +87,7 @@ class ViewController: UIViewController {
     func showGameWonAlert() {
         hangmanImageView.image = UIImage(named: "Hangman_won")
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             self.wins += 1
             self.updateScore()
             let alert = UIAlertController(title: "Woohoo!", message: "You saved me! Would you like to play again?", preferredStyle: .alert)
@@ -105,6 +112,7 @@ class ViewController: UIViewController {
     }
     
     func restartGame(alert: UIAlertAction!) {
+        guessWord = wordsArr.randomElement() ?? "HANGMAN"
         incorrectGuesses = 0
         displayWord()
         updateHangmanImage()

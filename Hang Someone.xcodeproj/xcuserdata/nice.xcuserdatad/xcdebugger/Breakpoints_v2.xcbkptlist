@@ -14,8 +14,8 @@
             filePath = "Hang Someone/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
             landmarkName = "updateDisplayedWord(with:)"
             landmarkType = "7">
          </BreakpointContent>
