@@ -1,0 +1,15 @@
+# Xcode
+DerivedData/
+*.xcuserstate
+*.xcworkspace
+*.xcuserdata
+
+# Swift Package Manager
+.build/
+
+# CocoaPods
+Pods/
+Podfile.lock
+
+# Carthage
+Carthage/Build/
